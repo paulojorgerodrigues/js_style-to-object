@@ -7,11 +7,11 @@
  */
 function convertToObject(sourceString) {
   // write your code here
-  const arr = sourceString.split(';');
+  const styles = sourceString.split(';');
   const ret = {};
 
-  for (let i = 0; i < arr.length; i++) {
-    const childArr = arr[i].split(':');
+  styles.forEach((element) => {
+    const childArr = element.split(':');
 
     if (childArr.length === 2) {
       const attributeName = childArr[0].trim();
@@ -21,7 +21,7 @@ function convertToObject(sourceString) {
         ret[attributeName] = attributeText;
       }
     }
-  }
+  });
 
   return ret;
 }
